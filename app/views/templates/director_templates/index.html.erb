@@ -1,0 +1,18 @@
+<h1> List of all directors! </h1>
+
+<div>
+<%Director.all.each do |d| %>
+  <ul>
+    <li>
+     <%= d.name %>
+    </li>
+    <li>
+     <%= d.dob %>
+    </li>
+    <li>
+     <%= d.bio %>
+    </li>
+
+  </ul>
+<% end %>
+</div>

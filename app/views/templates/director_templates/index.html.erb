@@ -1,18 +1,73 @@
-<h1> List of all directors! </h1>
+<h1> List of all directors </h1>
 
-<div>
-<%Director.all.each do |d| %>
-  <ul>
-    <li>
+
+<hr>
+
+<table border="1">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Name
+    </th>
+
+    <th>
+      Dob
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <tr>
+  <%Director.all.each do |d| %>
+
+    <th>
+     <%= d.id %>
+    </th>
+    <th>
+    <img src=<%= d.image.to_s %> style="width:250px;">
+    </th>
+    <th>
      <%= d.name %>
-    </li>
-    <li>
+    </th>
+    <th>
      <%= d.dob %>
-    </li>
-    <li>
-     <%= d.bio %>
-    </li>
+    </th>
+    <td>
+      <a href="/directors">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+    <td>
+      1
+    </td>
 
-  </ul>
-<% end %>
+    <td>
+      <img src="https://image.tmdb.org/t/p/w500/d0ZMdgMz1mVcWWctyF7sbymSlv4.jpg" style="width:250px;">
+    </td>
+
+    <td>
+      George Lucas
+    </td>
+
+    <td>
+      1944-05-14
+    </td>
+
+    <td>
+      <a href="/directors/1">
+        Show details
+      </a>
+    </td>
+  </tr>
+
 </div>

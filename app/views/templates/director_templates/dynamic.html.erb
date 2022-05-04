@@ -2,7 +2,7 @@
 Director #<%=@director_id%> details
 </h1>
 
-<%= @director %>
+<p><a href="/directors"> Go back</a></p>
 
 <dl>
   <dt>
@@ -30,5 +30,5 @@ Director #<%=@director_id%> details
     Image
   </dt>
   <dd>
-    <img src= <%=@image%> style="width:250px;">
+    <img src= "http://robohash.org/<%=@name%>" style="width:250px;">
   </dd>

@@ -1,19 +1,19 @@
 <h1>
-Director #<%=@director_id%> details
+Actor #<%=@actor_id%> details
 </h1>
 
-<p><a href="/directors"> Go back</a></p>
+<p><a href="/actors"> Go back</a></p>
 
 <dl>
   <dt>
-    Name
+    Title
   </dt>
   <dd>
     <%= @name %>
   </dd>
 
   <dt>
-    Dob
+    Year
   </dt>
   <dd>
     <%= @dob %>
@@ -32,3 +32,18 @@ Director #<%=@director_id%> details
   <dd>
     <img src= "http://robohash.org/<%=@name%>" style="width:250px;">
   </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    over 6 years ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    over 6 years ago
+  </dd>
+</dl>

@@ -5,13 +5,21 @@ class DirectorsController < ApplicationController
     render({ :template => "templates/director_templates/index.html.erb"})
   end
 
-  #def eldest
-   # @the_oldest = Director.all.order({:dob => :asc}).first
-   # @oldest_id = @the_oldest[:id]
-   ## @oldest_name = @the_oldest[:name]
-    #@oldest_dob = @the_oldest[:dob]
-    #render({ :template => "templates/director_templates/eldest.html.erb"})
-  #end
+  def eldest
+    @the_oldest = Director.all.where.not({:dob => nil}).order({:dob => :asc}).first
+    @oldest_id = @the_oldest[:id]
+    @oldest_name = @the_oldest[:name]
+    @oldest_dob = @the_oldest[:dob]
+    render({ :template => "templates/director_templates/eldest.html.erb"})
+  end
+
+  def youngest
+    @the_youngest = Director.all.where.not({:dob => nil}).order({:dob => :desc}).first
+     @youngest_id = @the_youngest[:id]
+     @youngest_name = @the_youngest[:name]
+     @youngest_dob = @the_youngest[:dob]
+     render({ :template => "templates/director_templates/youngest.html.erb"})
+   end
 
   def display
     #if params.fetch("director_id").class == "eldest"

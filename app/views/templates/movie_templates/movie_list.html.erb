@@ -1,0 +1,55 @@
+<table border="1">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <tr>
+    <%@movie_list.each do |movie| %>
+    <td>
+     <%= movie.id %>
+    </td>
+
+    <td>
+      <img src="http://robohash.org/<%= movie.title %>" style="width:250px">
+    </td>
+
+    <td>
+    <%= movie.title %>
+    </td>
+
+    <td>
+      <%= movie.year %>
+    </td>
+
+    <td>
+      <%= movie.director_id %>
+    </td>
+
+    <td>
+      <a href="/movies/<%=movie.id%>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>

@@ -22,7 +22,7 @@ class DirectorsController < ApplicationController
    end
 
   def display
-    #if params.fetch("director_id").class == "eldest"
+
       @director_id = params.fetch("director_id")
       @director_list = Director.all
       this_director = @director_list.where( {:id => @director_id })
@@ -31,7 +31,10 @@ class DirectorsController < ApplicationController
       @dob = this_director[0].fetch(:dob)
       @image = "http://robohash.org/#{@name}"
       @bio = this_director[0].fetch(:bio)
-    #end  
+
+      @movie_list = Movie.all
+      @filmography_movies = @movie_list.where( {:director_id => @director_id})
+
     render({ :template => "templates/director_templates/dynamic.html.erb"})
   end
 

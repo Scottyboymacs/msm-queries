@@ -6,14 +6,14 @@ Actor #<%=@actor_id%> details
 
 <dl>
   <dt>
-    Title
+    Name
   </dt>
   <dd>
     <%= @name %>
   </dd>
 
   <dt>
-    Year
+    Dob
   </dt>
   <dd>
     <%= @dob %>
@@ -47,3 +47,53 @@ Actor #<%=@actor_id%> details
     over 6 years ago
   </dd>
 </dl>
+
+<h2>Filmography</h2>
+
+<table border="1">
+  <tr>
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+      Character name
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+    <%@character_ids.each do |id| %>
+  <tr>
+    <td>
+    <%= @movie_list.where(:id => @character_list.where(:id => id).first.movie_id).first.title %>
+    </td>
+
+    <td>
+      <%= @movie_list.where(:id => @character_list.where(:id => id).first.movie_id).first.year %>
+    </td>
+
+    <td>
+      <%= @director_list.where(:id => @movie_list.where(:id => @character_list.where(:id => id).first.movie_id).first.director_id).first.name %>
+    </td>
+
+    <td>
+      <%= @actor_characters.where(:id => id).first.name %>
+    </td>
+
+    <td>
+      <a href="/movies/<%=@movie_list.where(:id => @character_list.where(:id => id).first.movie_id)%>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>

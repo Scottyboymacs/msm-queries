@@ -44,7 +44,7 @@ Movie #<%=@movie_id%> details
     Director
   </dt>
   <dd>
-    <%= @director %>
+    <%= @director_list.where(:id => @this_movie[0].director_id).first[:name] %>
   </dd>
 
   <dt>

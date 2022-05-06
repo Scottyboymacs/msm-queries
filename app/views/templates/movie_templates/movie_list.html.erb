@@ -43,7 +43,7 @@
     </td>
 
     <td>
-      <%= movie.director_id %>
+      <%= @director_list.where(:id => movie.director_id).first[:name] %>
     </td>
 
     <td>
